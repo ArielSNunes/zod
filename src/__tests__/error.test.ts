@@ -1,7 +1,7 @@
 // @ts-ignore TS6133
 import { expect, test } from "@jest/globals";
 
-import { ZodParsedType } from "../helpers/parseUtil";
+import { ZodParsedType } from "../helpers/util";
 import * as z from "../index";
 import { ZodError, ZodIssueCode } from "../ZodError";
 
@@ -376,7 +376,7 @@ test("invalid and required", () => {
   }
 });
 
-test("Fallback to invalid_type_error without required_error", () => {
+test("Fallback to default required error", () => {
   const str = z.string({
     invalid_type_error: "Invalid name",
     // required_error: "Name is required",
@@ -385,7 +385,7 @@ test("Fallback to invalid_type_error without required_error", () => {
   const result2 = str.safeParse(undefined);
   expect(result2.success).toEqual(false);
   if (!result2.success) {
-    expect(result2.error.issues[0].message).toEqual("Invalid name");
+    expect(result2.error.issues[0].message).toEqual("Required");
   }
 });
 
@@ -409,16 +409,43 @@ test("strict error message", () => {
   }
 });
 
-test("enum default error message", () => {
+test("enum error message, invalid enum elementstring", () => {
   try {
     z.enum(["Tuna", "Trout"]).parse("Salmon");
   } catch (err) {
     const zerr: z.ZodError = err as any;
     expect(zerr.issues.length).toEqual(1);
     expect(zerr.issues[0].message).toEqual(
-      "Invalid enum value. Expected 'Tuna' | 'Trout'"
+      "Invalid enum value. Expected 'Tuna' | 'Trout', received 'Salmon'"
     );
-    expect(zerr.issues[0].message).not.toContain("Salmon");
+  }
+});
+
+test("enum error message, invalid type", () => {
+  try {
+    z.enum(["Tuna", "Trout"]).parse(12);
+  } catch (err) {
+    const zerr: z.ZodError = err as any;
+    expect(zerr.issues.length).toEqual(1);
+    expect(zerr.issues[0].message).toEqual(
+      "Expected 'Tuna' | 'Trout', received number"
+    );
+  }
+});
+
+test("nativeEnum default error message", () => {
+  enum Fish {
+    Tuna = "Tuna",
+    Trout = "Trout",
+  }
+  try {
+    z.nativeEnum(Fish).parse("Salmon");
+  } catch (err) {
+    const zerr: z.ZodError = err as any;
+    expect(zerr.issues.length).toEqual(1);
+    expect(zerr.issues[0].message).toEqual(
+      "Invalid enum value. Expected 'Tuna' | 'Trout', received 'Salmon'"
+    );
   }
 });
 
@@ -430,6 +457,18 @@ test("literal default error message", () => {
     expect(zerr.issues.length).toEqual(1);
     expect(zerr.issues[0].message).toEqual(
       `Invalid literal value, expected "Tuna"`
+    );
+  }
+});
+
+test("literal bigint default error message", () => {
+  try {
+    z.literal(BigInt(12)).parse(BigInt(13));
+  } catch (err) {
+    const zerr: z.ZodError = err as any;
+    expect(zerr.issues.length).toEqual(1);
+    expect(zerr.issues[0].message).toEqual(
+      `Invalid literal value, expected "12"`
     );
   }
 });

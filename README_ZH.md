@@ -1,42 +1,37 @@
 <p align="center">
-  <img src="logo.svg" width="200px" align="center" />
+  <img src="logo.svg" width="200px" align="center" alt="Zod logo" />
   <h1 align="center">Zod</h1>
+  <p align="center">TypeScript-first schema validation with static type inference
+  <br/>
+  <a href="https://zod.dev">https://zod.dev</a></p>
 </p>
+<br/>
 <p align="center">
+<a href="https://github.com/colinhacks/zod/actions?query=branch%3Amaster"><img src="https://github.com/colinhacks/zod/actions/workflows/test.yml/badge.svg?event=push&branch=master" alt="Zod CI status" /></a>
 <a href="https://twitter.com/colinhacks" rel="nofollow"><img src="https://img.shields.io/badge/created%20by-@colinhacks-4BBAAB.svg" alt="Created by Colin McDonnell"></a>
 <a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/colinhacks/zod" alt="License"></a>
 <a href="https://www.npmjs.com/package/zod" rel="nofollow"><img src="https://img.shields.io/npm/dw/zod.svg" alt="npm"></a>
 <a href="https://www.npmjs.com/package/zod" rel="nofollow"><img src="https://img.shields.io/github/stars/colinhacks/zod" alt="stars"></a>
-<a href="./src/__tests__" rel="nofollow"><img src="./coverage.svg" alt="coverage"></a>
-
-</p>
-<p align="center">
-⭐️ smash that star button ⭐️
+<a href="https://discord.gg/KaSRdyX2vc" rel="nofollow"><img src="https://img.shields.io/discord/893487829802418277?label=Discord&logo=discord&logoColor=white" alt="discord server"></a>
 </p>
 
-> 如果你喜欢 Zod，你会喜欢我的新库 [tRPC](https://trpc.io). 这是一种建立端到端类型安全 API 的方法，无需 GraphQL 或代码生成 请在[trpc.io](https://trpc.io)上查看他.
+<div align="center">
+  <a href="https://zod.dev">Documentation</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://discord.gg/RcG33DQJdf">Discord</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://www.npmjs.com/package/zod">NPM</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/colinhacks/zod/issues/new">Issues</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://twitter.com/colinhacks">@colinhacks</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://trpc.io">tRPC</a>
+  <br />
+</div>
 
 <br/>
-
-## 二零二一年五月十七日: Zod v3 已经进入稳定版!
-
-查看 [迁移指南](https://github.com/colinhacks/zod/blob/master/MIGRATION.md) 进行升级.
-
-以前的版本:
-
-- [`Zod 1 docs`](https://github.com/colinhacks/zod/tree/v1)
-- [`Zod 2 docs`](https://github.com/colinhacks/zod/tree/v2)
-
-#### 新功能
-
-- **更容易的引入**: 你现在可以像`import { z } from 'zod';`那样导入 Zod，而不是使用`import * as`语法。
-- **结构化的错误消息**. 对 ZodError 使用`.format()`方法，将错误转换为强类型的嵌套对象: [format method](#error-formatting)
-- **更容易的联合类型**. 使用 ZodType（所有 Zod 模式的基类）的`or`方法，可以轻松创建联合类型，如 `z.string().or(z.number())`
-- **更容易的交叉类型**. 对 ZodType（所有 Zod 模式的基类）使用`and`方法，可以轻松创建交叉类型
-- **全局错误定制**. 使用`z.setErrorMap(myErrorMap)`来全面定制 Zod 产生的错误信息: [setErrorMap](ERROR_HANDLING.md#customizing-errors-with-zoderrormap)
-- **Maps and sets**. Zod 现在支持 [`Map`](#maps) 和 [`Set`](#sets) 模式。
-- **可选的和可忽略的解包**. ZodOptional 和 ZodNullable 现在有一个`.unwrap()`方法来检索它们所包裹的模式。
-- **A new implementation of transformers**. 请参阅[迁移指南](https://github.com/colinhacks/zod/blob/master/MIGRATION.md)部分以了解语法的变化。
+<br/>
 
 # 內容
 
@@ -121,72 +116,164 @@ Zod 被设计成对开发者尽可能友好。其目的是消除重复的类型�
 - 功能性方法: [解析，不验证](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
 - 也可用于普通的 JavaScript! 你不需要使用 TypeScript。
 
-# 赞助
+## 赞助
 
 我们感谢并鼓励任何级别的赞助。Zod 是由一个单独的开发者维护的 ([hi!](https://twitter.com/colinhacks)). 对于个人开发者来说，可以考虑[一杯咖啡级别](https://github.com/sponsors/colinhacks). 如果你使用 Zod 建立了一个付费产品，可以考虑[初创企业级别](https://github.com/sponsors/colinhacks). 你可以在以下网站上了解更多关于等级的信息 [github.com/sponsors/colinhacks](https://github.com/sponsors/colinhacks).
 
-### 贊助者
+### Gold
 
 <table>
   <tr>
-   <td align="center">
+    <td align="center">
+      <a href="https://astro.build/">
+        <img src="https://avatars.githubusercontent.com/u/44914786?s=200&v=4" width="200px;" alt="Astro" />
+      </a>
+      <br />
+      <b>Astro</b>
+      <br />
+      <a href="https://astro.build">astro.build</a>
+      <br />
+      <p width="200px">
+        Astro is a new kind of static <br/>
+        site builder for the modern web. <br/>
+        Powerful developer experience meets <br/>
+        lightweight output.</p>
+    </td>
+    <td align="center">
+      <a href="https://glow.app/">
+        <img src="https://i.imgur.com/R0R43S2.jpg" width="200px;" alt="" />
+      </a>
+      <br />
+      <b>Glow Wallet</b>
+      <br />
+      <a href="https://glow.app/">glow.app</a>
+      <br />
+      <p width="200px">Your new favorite
+        <br/>
+      Solana wallet.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
       <a href="https://deletype.com/">
-        <img src="https://avatars0.githubusercontent.com/u/15068039?s=200&v=4" width="100px;" alt="" />
+        <img src="https://avatars0.githubusercontent.com/u/15068039?s=200&v=4" width="200px;" alt="" />
       </a>
-      <br>
+      <br />
       <b>Deletype</b>
-      <br>
-      <a href="https://deletype.com/">https://deletype.com/</a>
+      <br />
+      <a href="https://deletype.com">deletype.com</a>
     </td>
-  <td align="center">
-      <a href="https://github.com/kevinsimper">
-        <img src="https://avatars1.githubusercontent.com/u/1126497?s=460&v=4" width="100px;" alt="" />
+  </tr>
+</table>
+
+### Silver
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://snaplet.dev">
+        <img src="https://avatars.githubusercontent.com/u/69029941?s=200&v=4" width="150px;" alt="" />
       </a>
-      <br>
-      <b>Kevin Simper</b>
-      <br>
-      <a href="https://github.com/kevinsimper">@kevinsimper</a>
+      <br />
+      <b>Snaplet</b>
+      <br />
+      <a href="https://snaplet.dev">snaplet.dev</a>
     </td>
+     <td align="center">
+      <a href="https://marcatopartners.com/">
+        <img src="https://avatars.githubusercontent.com/u/84106192?s=200&v=4" width="150px;" alt="Marcato Partners" />
+      </a>
+      <br />
+      <b>Marcato Partners</b>
+      <br />
+      <a href="https://marcatopartners.com/">marcatopartners.com</a>
+    </td>
+     <td align="center">
+      <a href="https://github.com/macandcheese-spaghetticode">
+        <img src="https://avatars.githubusercontent.com/u/76997592?v=4" width="150px;" alt="Trip" />
+      </a>
+      <br />
+      <b>Trip</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://seasoned.cc">
+        <img src="https://avatars.githubusercontent.com/u/33913103?s=200&v=4" width="150px;" alt="" />
+      </a>
+      <br />
+      <b>Seasoned Software</b>
+      <br />
+      <a href="https://seasoned.cc">seasoned.cc</a>
+    </td>
+    <td align="center">
+      <a href="https://seasoned.cc">
+        <img src="https://avatars.githubusercontent.com/u/67802063?s=200&v=4" width="150px;" alt="" />
+      </a>
+      <br />
+      <b>Interval</b>
+      <br />
+      <a href="https://interval.com">interval.com</a>
+    </td>
+  </tr>
+</table>
+
+### Bronze
+
+<table>
+  <tr>
     <td align="center">
       <a href="https://twitter.com/flybayer">
         <img src="https://avatars2.githubusercontent.com/u/8813276?s=460&u=4ff8beb9a67b173015c4b426a92d89cab960af1b&v=4" width="100px;" alt=""/>
       </a>
-      <br>
+      <br />
       <b>Brandon Bayer</b>
       <br/>
       <a href="https://twitter.com/flybayer">@flybayer</a>,
       <span>creator of <a href="https://blitzjs.com">Blitz.js</a></span>
       <br />
     </td>
-    
+    <td align="center">
+      <a href="https://github.com/brabeji">
+        <img src="https://avatars.githubusercontent.com/u/2237954?v=4" width="100px;" alt=""/>
+      </a>
+      <br />
+      <b>Jiří Brabec</b>
+      <br/>
+      <a href="https://github.com/brabeji">@brabeji</a>
+      <br />
+    </td>
+     <td align="center">
+      <a href="https://twitter.com/alexdotjs">
+        <img src="https://avatars.githubusercontent.com/u/459267?v=4" width="100px;" alt="" />
+      </a>
+      <br />
+      <b>Alex Johansson</b>
+      <br />
+      <a href="https://twitter.com/alexdotjs">@alexdotjs</a>
+    </td>
   </tr>
   <tr>
     <td align="center">
-      <a href="https://www.bamboocreative.nz/">
-        <img src="https://avatars1.githubusercontent.com/u/41406870?s=460&v=4" width="100px;" alt="" />
+      <a href="https://adaptable.io/">
+        <img src="https://avatars.githubusercontent.com/u/60378268?s=200&v=4" width="100px;" alt=""/>
       </a>
-      <br>
-      <b>Bamboo Creative</b>
-      <br>
-      <a href="https://www.bamboocreative.nz/">https://bamboocreative.nz</a>
+      <br />
+      <b>Adaptable</b>
+      <br/>
+      <a href="https://adaptable.io/">adaptable.io</a>
+      <br />
     </td>
     <td align="center">
-      <a href="https://github.com/jeremyBanks">
-        <img src="https://avatars.githubusercontent.com/u/18020?s=400&u=dba6c1402ae1746a276a5d256e01d68e774a0e9d&v=4" width="100px;" alt="" />
+      <a href="https://www.avanawallet.com/">
+        <img src="https://avatars.githubusercontent.com/u/105452197?s=200&v=4" width="100px;" alt="Avana Wallet logo"/>
       </a>
-      <br>
-      <b>Jeremy Banks</b>
-      <br>
-      <a href="https://github.com/jeremyBanks">github.com/jeremyBanks</a>
-    </td>
-     <td align="center">
-      <a href="https://marcatopartners.com/">
-        <img src="https://avatars.githubusercontent.com/u/84106192?s=200&v=4" width="100px;" alt="Marcato Partners" />
-      </a>
-      <br>
-      <b>Marcato Partners</b>
-      <br>
-      <a href="https://marcatopartners.com/">marcatopartners.com</a>
+      <br />
+      <b>Avana Wallet</b>
+      <br/>
+      <a href="https://www.avanawallet.com/">avanawallet.com</a><br/>
+      <span>Solana non-custodial wallet</span>
+      <br />
     </td>
   </tr>
 </table>
@@ -315,6 +402,8 @@ z.string().email();
 z.string().url();
 z.string().uuid();
 z.string().regex(regex);
+z.string().startsWith(string);
+z.string().endsWith(string);
 
 // 已废弃，等同于 .min(1)
 z.string().nonempty();
@@ -333,6 +422,8 @@ z.string().length(5, { message: "Must be exactly 5 characters long" });
 z.string().email({ message: "Invalid email address." });
 z.string().url({ message: "Invalid url" });
 z.string().uuid({ message: "Invalid UUID" });
+z.string().startsWith("https://", { message: "Must provide secure URL" });
+z.string().endsWith(".com", { message: "Only .com domains allowed" });
 ```
 
 ## Numbers
@@ -359,6 +450,20 @@ z.number().multipleOf(5); // x % 5 === 0
 
 ```ts
 z.number().max(5, { message: "this👏is👏too👏big" });
+```
+
+## Dates
+
+```ts
+z.date().safeParse(new Date()); // success: true
+
+z.date({
+  required_error: "Please select a date and time",
+  invalid_type_error: "That's not a date!",
+});
+
+z.date().min(new Date("1900-01-01"), { message: "Too old" });
+z.date().max(new Date(), { message: "Too young!" });
 ```
 
 ## Objects
@@ -479,9 +584,9 @@ const user = z.object({
 
 const deepPartialUser = user.deepPartial();
 
-/* 
+/*
 {
-  username?: string | undefined, 
+  username?: string | undefined,
   location?: {
     latitude?: number | undefined;
     longitude?: number | undefined;
@@ -808,12 +913,12 @@ const FishEnum = z.enum(fish);
 FishEnum.enum.Salmon; // => 自动补全
 
 FishEnum.enum;
-/* 
+/*
 => {
   Salmon: "Salmon",
   Tuna: "Tuna",
   Trout: "Trout",
-} 
+}
 */
 ```
 

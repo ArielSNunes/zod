@@ -42,7 +42,7 @@ _Every_ ZodIssue has these fields:
 
 | code                             | additional fields                                                                                                                                                                                                                                                                                                                                                    |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ZodIssueCode.invalid_type        | `expected: ZodParsedType` <br> `received: ZodParsedType` <br><br>Jump to [this section](#parsedtype) for a breakdown of the possible values of ZodParsedType.                                                                                                                                                                                                        |
+| ZodIssueCode.invalid_type        | `expected: ZodParsedType` <br> `received: ZodParsedType` <br><br>Jump to [this section](#zodparsedtype) for a breakdown of the possible values of ZodParsedType.                                                                                                                                                                                                        |
 | ZodIssueCode.unrecognized_keys   | `keys: string[]`<br>The list of unrecognized keys<br>                                                                                                                                                                                                                                                                                                                |
 | ZodIssueCode.invalid_union       | `unionErrors: ZodError[]` <br> The errors thrown by each element of the union.                                                                                                                                                                                                                                                                                       |
 | ZodIssueCode.invalid_enum_value  | `options: string[]` <br> The set of acceptable string values for this enum.                                                                                                                                                                                                                                                                                          |
@@ -416,9 +416,9 @@ Both `.flatten()` and `.format()` accept an optional mapping function of `(issue
 This can be particularly useful when integrating Zod with form validation, as it allows you to pass back whatever `ZodIssue` specific context you might need.
 
 ```ts
-result.error.flatten((iss: ZodIssue) => ({
-  message: i.message,
-  errorCode: i.code,
+result.error.flatten((issue: ZodIssue) => ({
+  message: issue.message,
+  errorCode: issue.code,
 }));
 /*
   {
